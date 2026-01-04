@@ -1,40 +1,77 @@
 [
   {
-    "source_zip": "ULTIMATE_AI_PHOTO_PROMPTS_COMMERCIAL_ARCHIVAL_V2.zip",
-    "path": "DECISION_FLOW_CHART.txt",
-    "mode": "GENERAL",
-    "category": "DECISION_FLOW_CHART.txt",
-    "title": "DECISION FLOW CHART",
-    "text": "AI PHOTO PROMPT DECISION FLOW (READ FIRST)\n\n1. Does the image involve a real person?\n   - NO \u2192 Commercial / Creative prompts acceptable\n   - YES \u2192 Continue\n\n2. Is the image historical, personal, cultural, or identity-sensitive?\n   - YES \u2192 ARCHIVAL_USE_ONLY\n   - NO \u2192 Continue\n\n3. Is the image for publication, branding, or marketing?\n   - YES \u2192 COMMERCIAL_EDITORIAL_USE\n   - NO \u2192 ARCHIVAL_USE_ONLY\n\n4. Are you changing face geometry, age, race, or expression?\n   - YES \u2192 STOP (Do Not Proceed)\n   - NO \u2192 Continue\n\n5. Are you enhancing lighting, texture, clarity only?\n   - YES \u2192 Safe to proceed\n   - NO \u2192 Re-evaluate prompt\n\nGolden Rule:\nWhen in doubt, choose ARCHIVAL.\nYou can polish later. You cannot restore truth once lost."
-  },
-  {
-    "source_zip": "ULTIMATE_AI_PHOTO_PROMPTS_COMMERCIAL_ARCHIVAL_V2.zip",
-    "path": "ARCHIVAL_USE_ONLY/ENHANCE_FULL_IMAGE/DO_NOT_CROSS_CHECKLIST.txt",
-    "mode": "ARCHIVAL_USE_ONLY",
     "category": "ENHANCE_FULL_IMAGE",
-    "title": "DO NOT CROSS CHECKLIST",
-    "text": "DO NOT CROSS LINE \u2014 ENHANCE_FULL_IMAGE\n\nNever allow:\n- Face reshaping or averaging\n- Age change (younger or older)\n- Ethnicity or skin tone normalization\n- Beautification or cosmetic alteration\n- Identity blending\n- Hallucinated details\n- Modern cinematic grading\n- Removal of all grain or texture\n\nIf any of the above occur:\nSTOP. Revert to previous version."
+    "mode": "HYBRID",
+    "risk_level": "Low",
+    "assembled_prompt": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.\n\nTASK:\nEnhance overall image quality, clarity, and tonal balance only. Do not alter composition, proportions, or identity.\n\nOUTPUT REQUIREMENTS:\nPhotorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+    "explanation": {
+      "identity_lock": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.",
+      "category_modifier": "Enhance overall image quality, clarity, and tonal balance only. Do not alter composition, proportions, or identity.",
+      "output_formatter": "Photorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+      "why_it_matters": "This category has a Low drift risk. Identity lock prevents unintended changes while the modifier limits the model\u2019s degrees of freedom."
+    }
   },
   {
-    "source_zip": "ULTIMATE_AI_PHOTO_PROMPTS_COMMERCIAL_ARCHIVAL_V2.zip",
-    "path": "ARCHIVAL_USE_ONLY/ENHANCE_FULL_IMAGE/GOLD_STANDARD_PROMPT.txt",
-    "mode": "ARCHIVAL_USE_ONLY",
-    "category": "ENHANCE_FULL_IMAGE",
-    "title": "GOLD STANDARD PROMPT",
-    "text": "GOLD STANDARD PROMPT \u2014 ENHANCE_FULL_IMAGE (ARCHIVAL_USE_ONLY)\n\nImage-to-image photographic enhancement only.\nTreat the input image as factual ground truth.\n\nPreserve identity exactly:\nfacial structure, age, ethnicity, skin tone, expression,\nand defining features must not change.\n\nEnhance only what already exists:\n- improve clarity without sharpening artifacts\n- restore natural skin texture and organic grain\n- gently balance exposure, shadows, and highlights\n- preserve original lighting direction and color cast\n\nForbid:\nface reshaping, beautification, de-aging,\nskin tone alteration, hallucinated details,\nHDR, cinematic grading, CGI or painterly effects.\n\nOutput goal:\nA higher-quality, realistic version of the same image,\nappropriate for archival preservation,\nwithout compromising truth or identity."
+    "category": "POSE_ANGLE_SAFE",
+    "mode": "HYBRID",
+    "risk_level": "Medium\u2013High",
+    "assembled_prompt": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.\n\nTASK:\nChange body pose and/or camera angle only. Reproject the face to the new angle while preserving exact facial identity, craniofacial structure, and expression.\n\nOUTPUT REQUIREMENTS:\nPhotorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+    "explanation": {
+      "identity_lock": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.",
+      "category_modifier": "Change body pose and/or camera angle only. Reproject the face to the new angle while preserving exact facial identity, craniofacial structure, and expression.",
+      "output_formatter": "Photorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+      "why_it_matters": "This category has a Medium\u2013High drift risk. Identity lock prevents unintended changes while the modifier limits the model\u2019s degrees of freedom."
+    }
   },
   {
-    "source_zip": "ULTIMATE_AI_PHOTO_PROMPTS_COMMERCIAL_ARCHIVAL_V2.zip",
-    "path": "ARCHIVAL_USE_ONLY/FACE_IDENTITY/DO_NOT_CROSS_CHECKLIST.txt",
-    "mode": "ARCHIVAL_USE_ONLY",
+    "category": "LIGHTING_COLOR",
+    "mode": "HYBRID",
+    "risk_level": "Medium",
+    "assembled_prompt": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.\n\nTASK:\nModify lighting direction, contrast, and falloff only. Do not alter geometry, texture placement, or identity-defining features.\n\nOUTPUT REQUIREMENTS:\nPhotorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+    "explanation": {
+      "identity_lock": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.",
+      "category_modifier": "Modify lighting direction, contrast, and falloff only. Do not alter geometry, texture placement, or identity-defining features.",
+      "output_formatter": "Photorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+      "why_it_matters": "This category has a Medium drift risk. Identity lock prevents unintended changes while the modifier limits the model\u2019s degrees of freedom."
+    }
+  },
+  {
     "category": "FACE_IDENTITY",
-    "title": "DO NOT CROSS CHECKLIST",
-    "text": "DO NOT CROSS LINE \u2014 FACE_IDENTITY\n\nNever allow:\n- Face reshaping or averaging\n- Age change (younger or older)\n- Ethnicity or skin tone normalization\n- Beautification or cosmetic alteration\n- Identity blending\n- Hallucinated details\n- Modern cinematic grading\n- Removal of all grain or texture\n\nIf any of the above occur:\nSTOP. Revert to previous version."
+    "mode": "HYBRID",
+    "risk_level": "Medium",
+    "assembled_prompt": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.\n\nTASK:\nRefine facial clarity without changing facial structure, proportions, age cues, ethnicity, or expression.\n\nOUTPUT REQUIREMENTS:\nPhotorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+    "explanation": {
+      "identity_lock": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.",
+      "category_modifier": "Refine facial clarity without changing facial structure, proportions, age cues, ethnicity, or expression.",
+      "output_formatter": "Photorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+      "why_it_matters": "This category has a Medium drift risk. Identity lock prevents unintended changes while the modifier limits the model\u2019s degrees of freedom."
+    }
   },
   {
-    "source_zip": "ULTIMATE_AI_PHOTO_PROMPTS_COMMERCIAL_ARCHIVAL_V2.zip",
-    "path": "ARCHIVAL_USE_ONLY/FACE_IDENTITY/GOLD_STANDARD_PROMPT.txt",
-    "mode": "ARCHIVAL_USE_ONLY",
+    "category": "BODY_PROPORTION",
+    "mode": "HYBRID",
+    "risk_level": "Medium\u2013High",
+    "assembled_prompt": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.\n\nTASK:\nEnhance body definition through lighting and posture only. Do not change anatomy or proportions.\n\nOUTPUT REQUIREMENTS:\nPhotorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+    "explanation": {
+      "identity_lock": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.",
+      "category_modifier": "Enhance body definition through lighting and posture only. Do not change anatomy or proportions.",
+      "output_formatter": "Photorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+      "why_it_matters": "This category has a Medium\u2013High drift risk. Identity lock prevents unintended changes while the modifier limits the model\u2019s degrees of freedom."
+    }
+  },
+  {
+    "category": "FACE_REPLACE",
+    "mode": "HYBRID",
+    "risk_level": "High",
+    "assembled_prompt": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.\n\nTASK:\nReplace the face using the provided identity reference only. Match angle, lighting, grain, and perspective exactly. No averaging.\n\nOUTPUT REQUIREMENTS:\nPhotorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+    "explanation": {
+      "identity_lock": "Preserve identity exactly. Do not alter facial structure, bone geometry, age, ethnicity, skin tone, expression, or proportions.\nNo face averaging, beautification, de-aging, or synthetic features.",
+      "category_modifier": "Replace the face using the provided identity reference only. Match angle, lighting, grain, and perspective exactly. No averaging.",
+      "output_formatter": "Photorealistic, high-fidelity output.\nNatural skin texture with subtle pores and micro-variation.\nPreserve organic film grain and realistic noise.\nPhysically accurate lighting and shadows.\nNo cinematic grading, HDR, oversharpening, or hallucinated details.",
+      "why_it_matters": "This category has a High drift risk. Identity lock prevents unintended changes while the modifier limits the model\u2019s degrees of freedom."
+    }
+  }
+]    "mode": "ARCHIVAL_USE_ONLY",
     "category": "FACE_IDENTITY",
     "title": "GOLD STANDARD PROMPT",
     "text": "GOLD STANDARD PROMPT \u2014 FACE_IDENTITY (ARCHIVAL_USE_ONLY)\n\nImage-to-image photographic enhancement only.\nTreat the input image as factual ground truth.\n\nPreserve identity exactly:\nfacial structure, age, ethnicity, skin tone, expression,\nand defining features must not change.\n\nEnhance only what already exists:\n- improve clarity without sharpening artifacts\n- restore natural skin texture and organic grain\n- gently balance exposure, shadows, and highlights\n- preserve original lighting direction and color cast\n\nForbid:\nface reshaping, beautification, de-aging,\nskin tone alteration, hallucinated details,\nHDR, cinematic grading, CGI or painterly effects.\n\nOutput goal:\nA higher-quality, realistic version of the same image,\nappropriate for archival preservation,\nwithout compromising truth or identity."
